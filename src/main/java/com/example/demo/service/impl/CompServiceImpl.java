@@ -1,15 +1,16 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 import com.example.demo.dto.CompDTO;
 import com.example.demo.entity.CompEntity;
 import com.example.demo.repository.*;
+import com.example.demo.service.CompService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CompServiceImpl implements CompService{
+public class CompServiceImpl implements CompService {
 
     @Autowired
     private CompRepository compRepository;

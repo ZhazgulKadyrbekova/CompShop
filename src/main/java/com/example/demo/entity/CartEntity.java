@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -23,8 +24,12 @@ public class CartEntity {
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
     private UserEntity user;
 
-    @ManyToOne
-    @JoinColumn(name = "comp_id", referencedColumnName = "comp_id")
-    private CompEntity CompEntity;
+    @ManyToMany
+    @JoinTable(name = "comp_cart", joinColumns = {
+            @JoinColumn(name = "comp_id", referencedColumnName = "comp_id")
+    }, inverseJoinColumns = {
+            @JoinColumn(name = "cart_id", referencedColumnName = "cart_id")
+    })
+    private List<CompEntity> CompEntity;
 
 }
